@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csaowby2utbqi"
-path="res://.godot/imported/playerGrey_walk2.png-43b6f15976d4f7aa67b5422e6a256069.ctex"
+uid="uid://d3oj6htjpcy1u"
+path="res://.godot/imported/enemyFlyingAlt_1.png-7ab9598bdfa152067275d9974cf91bbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/playerGrey_walk2.png"
-dest_files=["res://.godot/imported/playerGrey_walk2.png-43b6f15976d4f7aa67b5422e6a256069.ctex"]
+source_file="res://assets/enemyFlyingAlt_1.png"
+dest_files=["res://.godot/imported/enemyFlyingAlt_1.png-7ab9598bdfa152067275d9974cf91bbd.ctex"]
 
 [params]
 
