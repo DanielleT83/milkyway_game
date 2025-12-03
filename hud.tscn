@@ -1,28 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfnkl2imldcj"]
+[gd_scene load_steps=5 format=3 uid="uid://cfnkl2imldcj"]
 
 [ext_resource type="FontFile" uid="uid://cm6boka87fqb" path="res://Xolonium-Regular.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://fs1svoadxvde" path="res://hud.gd" id="1_64ctp"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_64ctp"]
+action = &"start_game"
+
+[sub_resource type="Shortcut" id="Shortcut_8sq4i"]
+events = [SubResource("InputEventAction_64ctp")]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -247.625
+offset_right = 247.625
+offset_bottom = 78.0
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 64
-text = "1"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Message" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -39.5
+offset_right = 575.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 65
-text = "1"
+text = "Dodge the Creeps!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -123.0
+offset_right = 100.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_37p78")
 theme_override_font_sizes/font_size = 64
-text = "4"
+shortcut = SubResource("Shortcut_8sq4i")
+text = "Start"
 
 [node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
