@@ -3,6 +3,8 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 
+@export var bullet_scene: PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -63,3 +65,5 @@ func _on_score_timer_timeout():
 func _on_start_timer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+
+	

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=4 uid="uid://cptdxtmipjxs7"]
 
-[ext_resource type="Script" uid="uid://btermgyp8se2q" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://cu74526ff4iik" path="res://mob.tscn" id="2_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://3k0oyi0c3nrx" path="res://player.tscn" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://cfnkl2imldcj" path="res://hud.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://btermgyp8se2q" path="res://scripts/main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cu74526ff4iik" path="res://scenes/mob.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://3k0oyi0c3nrx" path="res://scenes/player.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cfnkl2imldcj" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://bwn6rfourxpqo" path="res://gameover.wav" id="5_lquwl"]
 
 [sub_resource type="Curve2D" id="Curve2D_p11y5"]
@@ -42,6 +42,7 @@ grow_vertical = 2
 color = Color(0.22466198, 0.58474565, 0.60297984, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_lquwl")]
+speed = null
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
