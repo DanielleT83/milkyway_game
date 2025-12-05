@@ -1,10 +1,18 @@
 extends Area2D
 
-@export var speed = 400
+@export var bullet_speed = 400
 
-var velocity = Vector2(1,0)
+var direction = Vector2.ZERO
 
-signal kill
+func _physics_process(delta):
+	position.x += bullet_speed * delta
+	position.y += bullet_speed * delta
+	
+#	removes if offscreen:
+	if position.x > 1152 or position.x < 0:
+		queue_free()
+	if position.y > 648 or position.y < 0:
+		queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,11 +21,16 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += transform.x * speed * delta
-	position += transform.y * speed * delta
+	if direction == Vector2.ZERO:
+		return
+	position += direction * bullet_speed * delta
+	
+	if position.x < 0 or position.y < 0 or position.x > 1152 or position.y > 648:
+		queue_free()
+	
 
 func _on_body_entered(body):
 	if body.is_in_group("mobs"):
 		hide()
-		kill.emit()
+		$CollisionPolygon2D.set_deferred("disabled", true)
 	
