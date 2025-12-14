@@ -14,6 +14,7 @@ signal begin
 func _ready() -> void:
 	player.damage.connect(hud._on_player_damage)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

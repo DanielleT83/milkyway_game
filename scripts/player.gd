@@ -39,6 +39,7 @@ func _shoot(dir: Vector2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
+
 	
 	if Input.is_action_pressed("move_right") and player_move == true:
 		velocity.x += 1
@@ -86,6 +87,7 @@ func _on_body_entered(_body: Node2D) -> void:
 		hide()
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled", true)
+
 
 func start(pos):
 	position = pos

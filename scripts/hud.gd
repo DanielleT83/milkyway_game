@@ -26,9 +26,12 @@ func update_score(score):
 	
 func _ready() -> void:
 	pass
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
 
 func _on_start_button_pressed():
 	$StartButton.hide()

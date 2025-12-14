@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfnkl2imldcj" path="res://scenes/hud.tscn" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://bwn6rfourxpqo" path="res://assets/gameover.wav" id="5_lquwl"]
 
+
 [sub_resource type="Curve2D" id="Curve2D_p11y5"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1152, 0, 0, 0, 0, 0, 1152, 648, 0, 0, 0, 0, 0, 648, 0, 0, 0, 0, 0, 0)

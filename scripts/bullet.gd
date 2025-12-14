@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var bullet_speed = 400
+
 var direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
@@ -19,9 +20,8 @@ func _process(delta: float) -> void:
 		queue_free()
 	
 	
-
 func _on_body_entered(body: Node):
 	if body.is_in_group("mobs"):
 		body.queue_free()
 		queue_free()
-	
+
