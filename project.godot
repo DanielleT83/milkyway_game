@@ -13,11 +13,7 @@ config_version=5
 config/name="Milkyway Game One"
 run/main_scene="uid://cptdxtmipjxs7"
 config/features=PackedStringArray("4.5", "Forward Plus")
-<<<<<<< HEAD
 config/icon="res://assets/icon.svg"
-=======
-config/icon="res://icon.svg"
->>>>>>> 20babf8fa9ff65b9fd30a85babbc02c310d4eee5
 
 [editor_plugins]
 
