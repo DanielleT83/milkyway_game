@@ -23,4 +23,9 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node):
 	if body.is_in_group("mobs"):
 		body.queue_free()
-		queue_free()	
+		queue_free()
+		
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("player"):
+		print("player hit")
+		area.take_damage()

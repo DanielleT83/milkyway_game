@@ -1,11 +1,12 @@
 extends RigidBody2D
 
-@onready var bullet_scene = preload("res://scenes/bullet.tscn")
+@onready var bullet_scene = preload("res://scenes/mobBullet.tscn")
 
 var dir_options = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
 @onready var bullet_timer: Timer = $Timer
 var rng = RandomNumberGenerator.new()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,9 +27,13 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 func _shoot(dir: Vector2):
+	if dir == Vector2.ZERO:
+		return
+		
 	var bullet = bullet_scene.instantiate()
-	
-	bullet.position = global_position + (2 * dir)
+	bullet.add_to_group("bullets")
+
+	bullet.position = global_position + dir
 	bullet.direction = dir.normalized()
 	
 	get_parent().add_child(bullet)

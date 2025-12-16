@@ -19,6 +19,10 @@ config/icon="res://assets/icon.svg"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+bullets=""
+
 [input]
 
 move_right={

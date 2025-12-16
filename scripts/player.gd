@@ -12,7 +12,7 @@ var screen_size # Size of the game window.
 const CARDINAL_ONLY := false
 
 var can_shoot = true
-@onready var bullet_scene = preload("res://scenes/bullet.tscn")
+@onready var bullet_scene = preload("res://scenes/playerBullet.tscn")
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
@@ -31,6 +31,8 @@ func _shoot(dir: Vector2):
 	bullet.position = position
 	bullet.direction = dir.normalized()
 	get_parent().add_child(bullet)
+	bullet.add_to_group("bullets")
+
 	
 	can_shoot = false
 	await get_tree().create_timer(0.4).timeout
@@ -39,7 +41,6 @@ func _shoot(dir: Vector2):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
-
 	
 	if Input.is_action_pressed("move_right") and player_move == true:
 		velocity.x += 1
@@ -78,6 +79,9 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 func _on_body_entered(_body: Node2D) -> void:
+	take_damage()
+
+func take_damage():
 	if health == 3 or health == 2:
 		health -= 1
 		damage.emit(health)
@@ -87,10 +91,10 @@ func _on_body_entered(_body: Node2D) -> void:
 		hide()
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled", true)
-
-
+	
 func start(pos):
 	position = pos
+	health = 3
 	$CollisionShape2D.disabled = false
 
 func _on_main_begin() -> void:
