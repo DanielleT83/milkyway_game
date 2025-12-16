@@ -23,4 +23,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node):
 	if body.is_in_group("mobs"):
 		body.queue_free()
-		queue_free()
+		queue_free()	
